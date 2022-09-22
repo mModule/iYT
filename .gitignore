@@ -1,0 +1,20 @@
+## Ignore
+
+# macOS finder 'DS_Store'
+.DS_Store*
+
+# The staging and out directory
+staging/*
+out/*
+
+# backup and zip files
+*.backup
+*.zip
+
+# xfiles
+xfiles/*
+x_*
+
+# modified apk directory(s)
+revanced/*
+vanced/*
