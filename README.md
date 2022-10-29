@@ -4,9 +4,9 @@
 Magisk module that overlays a modified (patched) version over the regular version.<br>
 _This is done by using the `mount` command to mount (overlay) one file/directory over the other_.<br>
 
-### Requirment(s)
+### Requirement(s)
 Google _YouTube_ to be installed as a _user_ app.<br>
-Must be the same build as the pathced version.
+Must be the same build as the patched version.
 - Note: This has to be a full apk install. Not a split-apk install.
 
 ### Download
@@ -19,32 +19,56 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Select the zip file and install.
 - Reboot device.<br>
 
-### About
-- Add this part later.
-
 ### Recent changes
-- Update the script files.
-- Switch to ReVanced modified apk(s).
-- Update to YouTube v17.36.37
+- Update to the current Magisk installer script
+- Update the build script
+- Update to YouTube v17.41.37
 
 ### How to
-_Create the wiki pages and xda thread later_
-- [Make the Module](https://github.com/mModule/iYT/wiki/MakeModule)
-- [Install YouTube](https://github.com/mModule/iYT/wiki/YouTube)
+_Still need to create the wiki pages and xda thread :roll_eyes:_
+- [Make the Module](https://github.com/mModule/iYTm/wiki/MakeModule)
+- [Install YouTube](https://github.com/mModule/iYTm/wiki/YouTube)
 
+Module support:<br>
 - xdaDevelopers [Inject YouTube](https://forum.xda-developers.com/t/magisk-module-inject-youtube)
 
-### Build note(s)
-- [ReVanced](https://github.com/revanced)
-- We have to move back to a full apk instead of a split-apk.
-- - Git _LFS_ is active since the apk files are over 100 MB.
-- There are a 'few glitches'.
+### About
+This module includes a modified YouTube app.<br>
+The modified version is created by patching the stock version using ReVanced. <br>
+For more information on ReVanced.<br>
+- See the [ReVanced](https://github.com/revanced) project.
 
-_Example: The video navigation might be stuck on screen the first video you play.<br>
-A reboot will fix it and you should not run into it again._<br>
+#### Patches included in this Module
+<details>
 
-_Example: The top left (back) arrow might not work in some menus.<br>
-You can just go back using you normal device back navigation._
+* Client Spoof<br>
+_Spoofs the YouTube or Vanced client to prevent playback issues_<br>
+* Disable Auto Captions<br>
+_Disable forced captions from being automatically enabled_<br>
+* Disable Auto Player Popup Panels<br>
+_Disable automatic popup panels (playlist or live chat) on video player_<br>
+* Disable Fullscreen Panels<br>
+_Disables video description and comments panel in fullscreen view_<br>
+* Disable Startup Shorts Player<br>
+_Disables playing YouTube Shorts when launching YouTube_<br>
+* General Ads<br>
+_Removes general ads_<br>
+* Hide Infocard Suggestions<br>
+_Hides infocards in videos_<br>
+* Hide Watermark<br>
+_Hides creator's watermarks on videos_<br>
+* Minimized Playback<br>
+_Enables minimized and background playback_<br>
+* Remember Video Quality<br>
+_Adds the ability to remember the video quality you chose in the video quality flyout_<br>
+* Return Youtube Dislike<br>
+_Shows the dislike count of videos using the Return YouTube Dislike API_<br>
+* Sponsorblock<br>
+_Integrate SponsorBlock_<br>
+* Video Ads<br>
+_Removes ads in the video player_<br>
+
+</details>
 
 ---
 
