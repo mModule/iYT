@@ -10,11 +10,7 @@ SDIR="$TDIR"/staging
 OUT="$TDIR"/out/"$DATE"
 
 # Set additional variables
-NAME=iYT
-IYTB=NONE
-IYTD=NONE
-BUZB=NONE
-BUZD=NONE
+## None
 
 # Set main functions
 
@@ -32,9 +28,7 @@ backup() {
 		mv "$OUT"/"$ZIPNAME" "$OUT"/"$BACKUPFILE";
 		if [ $MODID = b ]; then
 			BUZB=""$OUT"/"$BACKUPFILE"";
-		fi;
-
-		if [ $MODID = d ]; then
+		elif [ $MODID = d ]; then
 			BUZD=""$OUT"/"$BACKUPFILE"";
 		fi;
 	fi;
@@ -44,8 +38,7 @@ change_log() {
 	echo "## YouTube v"$VNAME"" >update.md;
 	echo "" >>update.md;
 	echo "- Module updated to YouTube v"$VNAME"" >>update.md;
-	# echo "<br>" >>update.md;
-	echo "- Requires YouTube to also be updated to v_"$VNAME"_." >>update.md;
+	echo "- Requires YouTube to be updated to v"$VNAME" also." >>update.md;
 }
 
 create_json() {
@@ -54,7 +47,6 @@ create_json() {
 	echo "{" >"$JSON";
 	echo "  \"versionCode\": \""$VCODE"\"," >>"$JSON";
 	echo "  \"version\": \"Module\"," >>"$JSON";
-	# echo "  \"version\": \""$VNAME"\"," >>$JSON;
 	echo "  \"zipUrl\": \"https://github.com/mModule/iYT/releases/download/v"$VNAME"/"$ZIPNAME"\"," >>"$JSON";
 	echo "  \"changelog\": \"https://github.com/mModule/iYT/releases/download/v"$VNAME"/update.md\"" >>"$JSON";
 	echo "}" >>"$JSON";
@@ -74,6 +66,15 @@ edit_service_script() {
 	fi;
 }
 
+# get_app_abi() {
+# 	ABI=$(aapt dump badging "$i" | grep native-code | cut -f2 -d "'" | cut -f2 -d "-");
+# 	if [ "$ABI" = "v7a" ]; then
+# 		ARCH=arm
+# 	elif [ "$ABI" = "v8a" ]; then
+# 		ARCH=arm64
+# 	fi
+# }
+
 get_app_version() {
 	VCODE=$(aapt dump badging base.apk| grep version | cut -f4 -d"'");
 	VNAME=$(aapt dump badging base.apk| grep version | cut -f6 -d"'");
@@ -90,89 +91,90 @@ module_prop() {
 	echo "updateJson=https://raw.githubusercontent.com/mModule/iYT/master/iyt"$MODID".json" >>module.prop
 }
 
+set_mod_id() {
+	if [ $NAME = iYT ]; then
+		if [ $i = black.apk ]; then
+			MODID=b
+			THEME="Black"
+		elif [ $i = dark.apk ]; then
+			MODID=d
+			THEME="Dark"
+		fi
+	fi;
+}
+
+zip_yt(){
+	echo ""
+	echo "iYT ("$THEME")."
+	cp -rf META-INF "$SDIR"
+	cp customize.sh "$SDIR"
+	cp post-fs-data.sh "$SDIR"
+	cp service.sh "$SDIR"
+	cp "$i" "$SDIR"/base.apk
+	cd "$SDIR"
+	get_app_version
+	module_prop
+	edit_service_script
+	ZIPNAME="$NAME"-"$THEME"-v"$VER".zip
+	if [ $MODID = b ]; then
+		IYTB=""$OUT"/"$ZIPNAME""
+	elif [ $MODID = d ]; then
+		IYTD=""$OUT"/"$ZIPNAME""
+	fi
+	zip -r "$ZIPNAME" META-INF/* base.apk customize.sh module.prop post-fs-data.sh service.sh # > /dev/null 2>&1
+	backup
+	create_json
+	change_log
+	mv "$ZIPNAME" "$OUT"
+	mv update.md "$OUT"
+	rm -rf *
+	cd "$TDIR"
+}
+
 # Check and create directory(s) if needed.
 check_dir
 
-# Make zip file(s).
+# __ Make zip file(s). __
+### Modified APK file names..
+### YouTube (currently full apk only)
+## YouTube black theme 'black.apk'
+## YouTube regular theme 'dark.apk'
 
-if [ -f black.apk ]; then
-	echo ""; echo "iYT Black";
-	MODID=b
-	THEME="Black"
-	cp -rf META-INF "$SDIR"
-	cp customize.sh "$SDIR"
-	cp post-fs-data.sh "$SDIR"
-	cp service.sh "$SDIR"
-	cp black.apk "$SDIR"/base.apk
-	cd "$SDIR"
-	get_app_version
-	module_prop
-	edit_service_script
-	ZIPNAME="$NAME"-"$THEME"-v"$VER".zip
-	IYTB=""$OUT"/"$ZIPNAME""
-	zip -r "$ZIPNAME" META-INF/* base.apk customize.sh module.prop post-fs-data.sh service.sh
-	backup
-	create_json
-	change_log
-	mv "$ZIPNAME" "$OUT"
-	mv update.md "$OUT"
-	rm -rf *
-	cd "$TDIR"
-fi;
+for i in *.apk; do
+	if [ -f "$i" ]; then
+		if [ "$(aapt dump badging "$i" | grep version | cut -f2 -d"'")" = "com.google.android.youtube" ]; then
+			NAME=iYT
+			# get_app_abi
+			set_mod_id
+			zip_yt
+		fi
+	fi
+done
 
-if [ -f dark.apk ]; then
-	echo ""; echo "iYT Dark";
-	MODID=d
-	THEME="Dark"
-	cp -rf META-INF "$SDIR"
-	cp customize.sh "$SDIR"
-	cp post-fs-data.sh "$SDIR"
-	cp service.sh "$SDIR"
-	cp dark.apk "$SDIR"/base.apk
-	cd "$SDIR"
-	get_app_version
-	module_prop
-	edit_service_script
-	ZIPNAME="$NAME"-"$THEME"-v"$VER".zip
-	IYTD=""$OUT"/"$ZIPNAME""
-	zip -r "$ZIPNAME" META-INF/* base.apk customize.sh module.prop post-fs-data.sh service.sh
-	backup
-	create_json
-	change_log
-	mv "$ZIPNAME" "$OUT"
-	mv update.md "$OUT"
-	rm -rf *
-	cd "$TDIR"
-fi;
-
-if [ ! -f black.apk ] | [ ! -f dark.apk ]; then
+if [ -z $NAME ]; then
 	echo ""; echo "Nothing to do.";
 fi;
 
 # Note backup file(s).
-if [ -f $BUZB ] || [ -f $BUZD ]; then
+if [ -n "$BUZB" ] || [ -n "$BUZD" ]; then
 	echo ""; echo "Your previous zip file(s) renamed.";
-fi;
-
-if [ -f $BUZB ]; then
-	echo " iYT Black backup as "$BUZB"";
-fi;
-
-if [ -f $BUZD ]; then
-	echo " iYT Dark backup as "$BUZD"";
+	if [ -n "$BUZB" ]; then
+		echo " iYT Black backup as "$BUZB"";
+	fi;
+	if [ -n "$BUZD" ]; then
+		echo " iYT Dark backup as "$BUZD"";
+	fi;
 fi;
 
 # Note new file(s).
-if [ -f $IYTB ] || [ -f $IYTD ]; then
+if [ -n "$IYTB" ] || [ -n "$IYTD" ]; then
 	echo ""; echo "New zip file(s).";
-fi;
-
-if [ -f $IYTB ]; then
-	echo " iYT Black saved as "$IYTB"";
-fi;
-
-if [ -f $IYTD ]; then
-	echo " iYT Dark saved as "$IYTD"";
+	if [ -n "$IYTB" ]; then
+		echo " iYT Black saved as "$IYTB"";
+	fi;
+	if [ -n "$IYTD" ]; then
+		echo " iYT Dark saved as "$IYTD"";
+	fi;
 fi;
 
 # Finish script.
