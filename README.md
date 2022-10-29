@@ -25,12 +25,12 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Update to YouTube v17.41.37
 
 ### How to
-_Still need to create the wiki pages and xda thread :roll_eyes:_
-- [Make the Module](https://github.com/mModule/iYTm/wiki/MakeModule)
-- [Install YouTube](https://github.com/mModule/iYTm/wiki/YouTube)
+_Still need to create the wiki pages :roll_eyes:_
+- [Make the Module](https://github.com/mModule/iYT/wiki/MakeModule)
+- [Install YouTube](https://github.com/mModule/iYT/wiki/YouTube)
 
 Module support:<br>
-- xdaDevelopers [Inject YouTube](https://forum.xda-developers.com/t/magisk-module-inject-youtube)
+- xdaDevelopers [Inject YouTube](https://forum.xda-developers.com/t/module-inject-youtube.4512121)
 
 ### About
 This module includes a modified YouTube app.<br>
