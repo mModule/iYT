@@ -33,7 +33,6 @@ fi;
 if [ -z $YTMOD ]; then
 	while [ -z $YTVCODE ]; do
 		YTVCODE=$(dumpsys package com.google.android.youtube | grep versionCode | cut -f2 -d'=' | tr -d '\n' | cut -f1 -d' ');
-		# sleep 1;
 		date +%N > /dev/null;
 	done;
 fi;
@@ -49,6 +48,5 @@ fi;
 
 # Mount if failsafe(s) pass.
 if [ -z $YTMOD ]; then
-	# su -c mount -o bind $MODDIR/base.apk $YTPATH/base.apk;
 	su -c mount $MODDIR/base.apk $YTPATH/base.apk;
 fi;
