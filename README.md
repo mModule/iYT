@@ -20,9 +20,8 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Reboot device.<br>
 
 ### Recent changes
-- Update to the current Magisk installer script
-- Update the build script
-- Update to YouTube v17.41.37
+- Some cleanup
+- Update to YouTube v17.43.36
 
 ### How to
 _Still need to create the wiki pages :roll_eyes:_
