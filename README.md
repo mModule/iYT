@@ -21,7 +21,7 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 
 ### Recent changes
 - Some cleanup
-- Update to YouTube v17.43.36
+- Update to YouTube v17.45.36
 
 ### How to
 _Still need to create the wiki pages :roll_eyes:_
