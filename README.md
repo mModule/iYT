@@ -20,8 +20,11 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Reboot device.<br>
 
 ### Recent changes
-- Some cleanup
-- Update to YouTube v17.45.36
+- Cleanup script(s).<br>
+<i>Still some WIP</i>
+- Updates to the stock YouTube's theme, now makes the 'Black' theme build redundant.<br>
+<i>Drop separate 'Black' and 'Dark' theme names since they are now the same.</i><br>
+- Update to YouTube v17.49.37
 
 ### How to
 _Still need to create the wiki pages :roll_eyes:_
