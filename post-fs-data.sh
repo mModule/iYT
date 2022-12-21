@@ -19,3 +19,7 @@ ADB=${MMDIR%/*}
 [[ -f $ADB/post-fs-data.d/com.google.android.youtube.sh ]] && rm $ADB/post-fs-data.d/com.google.android.youtube.sh;
 [[ -f $ADB/service.d/com.google.android.youtube.sh ]] && rm $ADB/service.d/com.google.android.youtube.sh;
 [[ -d /data/local/tmp/revanced-manager/com.google.android.youtube ]] && rm -rf /data/local/tmp/revanced-manager/com.google.android.youtube;
+
+# Check and remove old iYT modules.
+[[ -d $ADB/modules/iytb ]] && rm -rf $ADB/modules/iytb;
+[[ -d $ADB/modules/iytd ]] && rm -rf $ADB/modules/iytd;

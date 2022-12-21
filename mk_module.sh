@@ -26,10 +26,10 @@ backup() {
 		FLTM=$(date -r "$OUT"/"$ZIPNAME" '+%H%M');
 		BACKUPFILE=$(printf "$ZIPNAME" | sed 's/.zip/-'"$FLTM".zip'/g');
 		mv "$OUT"/"$ZIPNAME" "$OUT"/"$BACKUPFILE";
-		if [ $MODID = b ]; then
-			BUZB=""$OUT"/"$BACKUPFILE"";
-		elif [ $MODID = d ]; then
-			BUZD=""$OUT"/"$BACKUPFILE"";
+		if [ $MODID = yt ]; then
+			BUZYT=""$OUT"/"$BACKUPFILE"";
+		# elif [ $MODID = d ]; then
+		# 	BUZD=""$OUT"/"$BACKUPFILE"";
 		fi;
 	fi;
 }
@@ -42,7 +42,7 @@ change_log() {
 }
 
 create_json() {
-	JSON="$TDIR"/iyt"$MODID".json
+	JSON="$TDIR"/iyt.json
 
 	echo "{" >"$JSON";
 	echo "  \"versionCode\": \""$VCODE"\"," >>"$JSON";
@@ -82,30 +82,30 @@ get_app_version() {
 }
 
 module_prop() {
-	echo "id=iyt"$MODID"" >>module.prop
-	echo "name=Inject YouTube "$THEME"" >>module.prop
+	echo "id=iyt" >module.prop
+	echo "name=Inject YouTube" >>module.prop
 	echo "version=Module" >>module.prop
 	echo "versionCode="$VCODE"" >>module.prop
 	echo "author=ip" >>module.prop
-	echo "description=YouTube v"$VNAME" "$THEME" Theme" >>module.prop
-	echo "updateJson=https://raw.githubusercontent.com/mModule/iYT/master/iyt"$MODID".json" >>module.prop
+	echo "description=YouTube v"$VNAME >>module.prop
+	echo "updateJson=https://raw.githubusercontent.com/mModule/iYT/master/iyt.json" >>module.prop
 }
 
-set_mod_id() {
-	if [ $NAME = iYT ]; then
-		if [ $i = black.apk ]; then
-			MODID=b
-			THEME="Black"
-		elif [ $i = dark.apk ]; then
-			MODID=d
-			THEME="Dark"
-		fi
-	fi;
-}
+# set_mod_id() {
+# 	if [ $NAME = iYT ]; then
+# 		if [ $i = black.apk ]; then
+# 			MODID=b
+# 			THEME="Black"
+# 		elif [ $i = dark.apk ]; then
+# 			MODID=d
+# 			THEME="Dark"
+# 		fi
+# 	fi;
+# }
 
 zip_yt(){
 	echo ""
-	echo "iYT ("$THEME")."
+	echo "iYT ("$ARCH")."
 	cp -rf META-INF "$SDIR"
 	cp customize.sh "$SDIR"
 	cp post-fs-data.sh "$SDIR"
@@ -115,12 +115,8 @@ zip_yt(){
 	get_app_version
 	module_prop
 	edit_service_script
-	ZIPNAME="$NAME"-"$THEME"-v"$VER".zip
-	if [ $MODID = b ]; then
-		IYTB=""$OUT"/"$ZIPNAME""
-	elif [ $MODID = d ]; then
-		IYTD=""$OUT"/"$ZIPNAME""
-	fi
+	ZIPNAME="$NAME"-v"$VER".zip
+	IYT=""$OUT"/"$ZIPNAME""
 	zip -r "$ZIPNAME" META-INF/* base.apk customize.sh module.prop post-fs-data.sh service.sh # > /dev/null 2>&1
 	backup
 	create_json
@@ -145,7 +141,9 @@ for i in *.apk; do
 		if [ "$(aapt dump badging "$i" | grep version | cut -f2 -d"'")" = "com.google.android.youtube" ]; then
 			NAME=iYT
 			# get_app_abi
-			set_mod_id
+			ARCH=all
+			# set_mod_id
+			MODID=yt
 			zip_yt
 		fi
 	fi
@@ -156,24 +154,18 @@ if [ -z $NAME ]; then
 fi;
 
 # Note backup file(s).
-if [ -n "$BUZB" ] || [ -n "$BUZD" ]; then
+if [ -n "$BUZYT" ]; then
 	echo ""; echo "Your previous zip file(s) renamed.";
-	if [ -n "$BUZB" ]; then
-		echo " iYT Black backup as "$BUZB"";
-	fi;
-	if [ -n "$BUZD" ]; then
-		echo " iYT Dark backup as "$BUZD"";
+	if [ -n "$BUZYT" ]; then
+		echo " iYT backup as "$BUZYT"";
 	fi;
 fi;
 
 # Note new file(s).
-if [ -n "$IYTB" ] || [ -n "$IYTD" ]; then
+if [ -n "$IYT" ]; then
 	echo ""; echo "New zip file(s).";
-	if [ -n "$IYTB" ]; then
-		echo " iYT Black saved as "$IYTB"";
-	fi;
-	if [ -n "$IYTD" ]; then
-		echo " iYT Dark saved as "$IYTD"";
+	if [ -n "$IYT" ]; then
+		echo " iYT saved as "$IYT"";
 	fi;
 fi;
 
