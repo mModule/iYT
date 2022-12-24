@@ -133,8 +133,7 @@ check_dir
 # __ Make zip file(s). __
 ### Modified APK file names..
 ### YouTube (currently full apk only)
-## YouTube black theme 'black.apk'
-## YouTube regular theme 'dark.apk'
+## YouTube 'yt.apk'
 
 for i in *.apk; do
 	if [ -f "$i" ]; then

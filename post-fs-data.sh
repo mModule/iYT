@@ -20,6 +20,10 @@ ADB=${MMDIR%/*}
 [[ -f $ADB/service.d/com.google.android.youtube.sh ]] && rm $ADB/service.d/com.google.android.youtube.sh;
 [[ -d /data/local/tmp/revanced-manager/com.google.android.youtube ]] && rm -rf /data/local/tmp/revanced-manager/com.google.android.youtube;
 
+# Check and remove ReVanced YouTube module.
+[[ -f $ADB/com.google.android.youtube_rv.apk ]] && rm $ADB/com.google.android.youtube_rv.apk;
+[[ -d $MMDIR/ytrv-magisk ]] && rm -rf $MMDIR/ytrv-magisk;
+
 # Check and remove old iYT modules.
-[[ -d $ADB/modules/iytb ]] && rm -rf $ADB/modules/iytb;
-[[ -d $ADB/modules/iytd ]] && rm -rf $ADB/modules/iytd;
+[[ -d $MMDIR/iytb ]] && rm -rf $MMDIR/iytb;
+[[ -d $MMDIR/iytd ]] && rm -rf $MMDIR/iytd;

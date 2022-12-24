@@ -20,10 +20,9 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Reboot device.<br>
 
 ### Recent changes
-- Cleanup script(s).<br>
-<i>Still some WIP</i>
-- Updates to the stock YouTube's theme, now makes the 'Black' theme build redundant.<br>
-<i>Drop separate 'Black' and 'Dark' theme names since they are now the same.</i><br>
+- Update script(s).<br>
+- Drop separate 'Black' and 'Dark' theme builds.<br>
+<i>Due to updates in YouTube's theme, separate theme builds are redundant.</i><br>
 - Update to YouTube v17.49.37
 
 ### How to
@@ -55,6 +54,8 @@ _Disables video description and comments panel in fullscreen view_<br>
 _Disables playing YouTube Shorts when launching YouTube_<br>
 * General Ads<br>
 _Removes general ads_<br>
+* Hide Endscreen Cards<br>
+_Hides the suggested video cards at the end of a video in fullscreen_<br>
 * Hide Infocard Suggestions<br>
 _Hides infocards in videos_<br>
 * Hide Watermark<br>
