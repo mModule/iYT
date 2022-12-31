@@ -1,16 +1,21 @@
 #!/system/bin/sh
 
-## Mount a modified YouTube over stock YouTube.
+## This script is part of the iYT module project.
 ## ipdev @ xda-developers
 
 ## Requires YouTube to be installed as a user app.
-## Required YouTube version is 17.03.38
+## Required YouTube version is 17.49.37
 
-# Module directory set by Magisk.
-MODDIR=${0%/*}
+## Module directory(s) set by Magisk.
+# Module Directory
+MDIR=${0%/*}
+# Magisk Modules Directory
+MMDIR=${MDIR%/*}
+# ADB Directory
+ADB=${MMDIR%/*}
 
 # Required YT versionCode.
-RYTVC=1527248320
+RYTVC=1533275584
 
 # Get SDK level and architecture.
 SDK=$(getprop ro.build.version.sdk);
@@ -48,5 +53,5 @@ fi;
 
 # Mount if failsafe(s) pass.
 if [ -z $YTMOD ]; then
-	su -c mount $MODDIR/base.apk $YTPATH/base.apk;
+	su -c mount $ADB/iyt/base.apk $YTPATH/base.apk;
 fi;
