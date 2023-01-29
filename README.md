@@ -20,10 +20,10 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Reboot device.<br>
 
 ### Recent changes
-- Update script(s).<br>
-- Drop separate 'Black' and 'Dark' theme builds.<br>
-<i>Due to updates in YouTube's theme, separate theme builds are redundant.</i><br>
-- Update to YouTube v17.49.37
+- Update scripts<br>
+_Due to more apps looking for root and Magisk...<br>
+Switch to mounting the modified apk from outside the module directory._
+- Update to YouTube v18.03.36
 
 ### How to
 _Still need to create the wiki pages :roll_eyes:_
