@@ -20,7 +20,7 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Reboot device.<br>
 
 ### Recent changes
-- Update to YouTube v18.05.40
+- Update to YouTube v18.15.40
 
 ### How to
 _Still need to create the wiki pages :roll_eyes:_
@@ -78,7 +78,7 @@ _Removes ads in the video player_<br>
 
 ### Credits
 - The Android Community and everyone who has helped me learn through the years.
-- John Wu for Magisk.
+- John Wu and team for all things Magisk.
 - Vanced.
 - ReVanced.
 - Everyone that has contributed to YouTube modifications.<br>
