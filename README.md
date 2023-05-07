@@ -20,7 +20,7 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Reboot device.<br>
 
 ### Recent changes
-- Update to YouTube v18.15.40
+- Update to YouTube v18.16.37
 
 ### How to
 _Still need to create the wiki pages :roll_eyes:_
