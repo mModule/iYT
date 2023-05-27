@@ -11,10 +11,14 @@ out/*
 *.backup
 *.zip
 
+# Due to LFS limitations
+*.apk
+
 # xfiles
 xfiles/*
 x_*
 
 # modified apk directory(s)
+extended/*
 revanced/*
 vanced/*
