@@ -20,7 +20,7 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Reboot device.<br>
 
 ### Recent changes
-- Update to YouTube v18.19.35
+- Update to YouTube v18.23.35
 
 ### How to
 _Still need to create the wiki pages :roll_eyes:_
@@ -42,13 +42,10 @@ For more information on ReVanced.<br>
 | Patch | Description |
 |:--------:|:--------------:|
 | `client-spoof` | Spoofs a patched client to allow playback. |
-| `disable-auto-captions` | Disable forced captions from being automatically enabled. |
-| `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. |
-| `disable-player-popup-panels` | Disables panels from appearing automatically when going into fullscreen (playlist or live chat). |
 | `disable-shorts-on-startup` | Disables playing YouTube Shorts when launching YouTube. |
+| `disable-auto-captions` | Disable forced captions from being automatically enabled. |
 | `hide-ads` | Removes general ads. |
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. |
-| `hide-get-premium` | Hides advertisement for YouTube Premium under the video player. |
 | `hide-info-cards` | Hides info cards in videos. |
 | `hide-watermark` | Hides creator's watermarks on videos. |
 | `minimized-playback` | Enables minimized and background playback. |
@@ -56,6 +53,9 @@ For more information on ReVanced.<br>
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. |
 | `video-ads` | Removes ads in the video player. |
+| `disable-player-popup-panels` | Disables panels from appearing automatically when going into fullscreen (playlist or live chat). |
+| `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. |
+| `hide-layout-components` | Hides general layout components. |
 </details>
 
 ---
@@ -66,7 +66,8 @@ For more information on ReVanced.<br>
 
 ### Credits
 - The Android Community and everyone who has helped me learn through the years.
-- John Wu and team for all things Magisk.
+- John Wu and team for all things [Magisk](https://github.com/topjohnwu/Magisk).
 - Vanced.
 - ReVanced.
+<!-- - [inotia00](https://github.com/inotia00/revanced-patches) for patches. -->
 - Everyone that has contributed to YouTube modifications.<br>
