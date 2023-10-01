@@ -20,7 +20,7 @@ Available in the releases tab. [Link](https://github.com/mModule/iYT/releases)
 - Reboot device.<br>
 
 ### Recent changes
-- Update to YouTube v18.23.35
+- Update to YouTube v18.32.39
 
 ### How to
 _Still need to create the wiki pages :roll_eyes:_
@@ -35,27 +35,29 @@ This module includes a modified YouTube app.<br>
 The modified version is created by patching the stock version using ReVanced. <br>
 For more information on ReVanced.<br>
 - See the [ReVanced](https://github.com/revanced) project.
+- Currently using [inotia00's](https://github.com/inotia00/revanced-patches) patches.<br>
 
 <b>Patches included in this Module</b>
 <details>
 
 | Patch | Description |
 |:--------:|:--------------:|
-| `client-spoof` | Spoofs a patched client to allow playback. |
+| `default-video-quality` | Adds ability to set default video quality settings. |
 | `disable-shorts-on-startup` | Disables playing YouTube Shorts when launching YouTube. |
-| `disable-auto-captions` | Disable forced captions from being automatically enabled. |
-| `hide-ads` | Removes general ads. |
-| `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. |
-| `hide-info-cards` | Hides info cards in videos. |
-| `hide-watermark` | Hides creator's watermarks on videos. |
-| `minimized-playback` | Enables minimized and background playback. |
-| `remember-video-quality` | Adds the ability to remember the video quality you chose in the video quality flyout. |
-| `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. |
-| `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. |
-| `video-ads` | Removes ads in the video player. |
-| `disable-player-popup-panels` | Disables panels from appearing automatically when going into fullscreen (playlist or live chat). |
-| `disable-fullscreen-panels` | Disables video description and comments panel in fullscreen view. |
+| `disable-auto-captions` | Disables forced auto captions. |
+| `enable-minimized-playback` | Enables minimized and background playback. |
+| `hide-auto-player-popup-panels` | Hide automatic popup panels (playlist or live chat) on video player. |
+| `hide-channel-watermark` | Hides creator's watermarks on videos. |
+| `hide-end-screen-cards` | Hides the suggested video cards at the end of a video in fullscreen. |
+| `hide-fullscreen-panels` | Hides video description and comments panel in fullscreen view. |
+| `hide-general-ads` | Hides general ads. |
+| `hide-info-cards` | Hides info-cards in videos. |
 | `hide-layout-components` | Hides general layout components. |
+| `hide-video-ads` | Hides ads in the video player. |
+| `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. |
+| `settings` | Applies mandatory patches to implement ReVanced settings into the application. |
+| `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. |
+| `spoof-player-parameters` | Spoofs player parameters to prevent playback issues. |
 </details>
 
 ---
